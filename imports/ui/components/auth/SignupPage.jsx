@@ -43,6 +43,17 @@ export default class SignupPage extends Component {
     }
 
   }
+  loginWithFacebook(){
+    Meteor.loginWithFacebook({
+      requestPermissions: ['user_friends', 'public_profile', 'email']
+    }, (err) => {
+      if (err) {
+        // handle error
+      } else {
+        // successful login!
+      }
+    });
+  }
   createUser(email, name, password){
     console.log('createuser');
     Accounts.createUser({email: email, username: name, password: password}, (err) => {
