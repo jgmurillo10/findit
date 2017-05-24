@@ -66,6 +66,13 @@ export default class SignupPage extends Component {
     const errorMail = this.state.errorMail;
     return(
       <div>
+        <div className="banner-top">
+        	<div className="container">
+        		<h3 >Register</h3>
+        		<h4><a href="index.html">Home</a><label>/</label>Register</h4>
+        		<div className="clearfix"> </div>
+        	</div>
+        </div>
         <div className="login">
       		<div className="main-agileits">
       				<div className="form-w3agile form1">
