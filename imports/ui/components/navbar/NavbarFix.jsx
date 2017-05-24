@@ -4,7 +4,44 @@ import { Link } from 'react-router';
 import { createContainer } from 'meteor/react-meteor-data';
 class Navbarfix extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      log: '',
+      username:'',
+    };
+    this.logout= this.logout.bind(this);
+
+  }
+  componentWillMount(){
+  if (Meteor.user()) {
+    console.log('didupdate', Meteor.user().username);
+    this.setState({
+      username: Meteor.user().username
+    });
+  }
+}
+  signup() {
+    browserHistory.push('/signup');
+  }
+  login(x) {
+    this.setState({ log: x });
+  }
+  logout() {
+    Meteor.logout();
+    browserHistory.push('/');
+  }
+
+
     render() {
+      const logged = Meteor.user();
+      let address = '';
+      if(logged){
+        address = logged.username;
+      }
+      console.log(logged);
+
+
       return (
         <div className="header">
 
@@ -14,12 +51,28 @@ class Navbarfix extends Component {
       				<h1 ><a href="index.html"><b>T<br></br>H<br></br>E</b>  Find it cheaper<span>The Best Supermarket</span></a></h1>
       			</div>
       			<div className="head-t">
-      				<ul className="card">
+                {logged?
+                  <h3>Bienvenido {address} </h3>
 
-                <li><Link to={'/wishlist'} role="button" ><i className="fa fa-heart" aria-hidden="true"></i>Wishlist</Link></li>
-                <li><Link to={'/login'} role="button" ><i className="fa fa-user" aria-hidden="true"></i>Login</Link></li>
-                <li><Link to={'/signup'} role="button" ><i className="fa fa-arrow-right" aria-hidden="true"></i>Register</Link></li>
-      					<li><a href="about.html" ><i className="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
+                  :
+                  <a ></a>
+                }
+
+                {logged?
+                  <ul className="card">
+                    <li><Link to={'/wishlist'} role="button" ><i className="fa fa-heart" aria-hidden="true"></i>Wishlist</Link></li>
+                    <li><a role="button" data-toggle="collapse" href="#" onClick={this.logout}> <i className="fa fa-sign-out"></i>  Log out</a></li>
+                  </ul>
+
+                :
+                  <ul className="card">
+                    <li><Link to={'/login'} role="button" ><i className="fa fa-user" aria-hidden="true"></i>Login</Link></li>
+                    <li><Link to={'/signup'} role="button" ><i className="fa fa-arrow-right" aria-hidden="true"></i>Register</Link></li>
+                  </ul>
+
+                }
+              <ul className="card">
+                <li><a href="about.html" ><i className="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
       					<li><a href="shipping.html" ><i className="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
       				</ul>
       			</div>
@@ -49,7 +102,7 @@ class Navbarfix extends Component {
       					</div>
       					<div className="collapse navbar-collapse" id="bs-megadropdown-tabs">
       						<ul className="nav navbar-nav ">
-                  
+
       							<li className=" active"><Link to={'/'} role="button" className="hyper "><span>Home</span></Link></li>
 
       							<li className="dropdown ">
@@ -184,9 +237,11 @@ class Navbarfix extends Component {
 
       							<li><a href="codes.html" className="hyper"> <span>Codes</span></a></li>
       							<li><a href="contact.html" className="hyper"><span>Contact Us</span></a></li>
-      						</ul>
+
+                </ul>
       					</div>
       					</nav>
+
       					 <div className="cart" >
 
       						<span className="fa fa-shopping-cart my-cart-icon"><span className="badge badge-notify my-cart-badge"></span></span>
@@ -200,4 +255,6 @@ class Navbarfix extends Component {
     }
 
 }
-export default Navbarfix;
+export default createContainer(() => {
+  return { currentUser: Meteor.user() };
+}, Navbarfix);
