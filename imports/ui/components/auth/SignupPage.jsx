@@ -43,6 +43,17 @@ export default class SignupPage extends Component {
     }
 
   }
+  loginWithFacebook(){
+    Meteor.loginWithFacebook({
+      requestPermissions: ['user_friends', 'public_profile', 'email']
+    }, (err) => {
+      if (err) {
+        // handle error
+      } else {
+        // successful login!
+      }
+    });
+  }
   createUser(email, name, password){
     console.log('createuser');
     Accounts.createUser({email: email, username: name, password: password}, (err) => {
@@ -66,6 +77,13 @@ export default class SignupPage extends Component {
     const errorMail = this.state.errorMail;
     return(
       <div>
+        <div className="banner-top">
+        	<div className="container">
+        		<h3 >Register</h3>
+        		<h4><a href="index.html">Home</a><label>/</label>Register</h4>
+        		<div className="clearfix"> </div>
+        	</div>
+        </div>
         <div className="login">
       		<div className="main-agileits">
       				<div className="form-w3agile form1">
