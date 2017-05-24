@@ -30,6 +30,9 @@ import '/imports/assets/js/jquery.vide.min.js';
 import Home from '../imports/ui/components/Home.jsx';
 import App from '../imports/ui/components/App.jsx';
 import LoginPage from '../imports/ui/components/auth/LoginPage';
+import SignupPage from '../imports/ui/components/auth/SignupPage';
+import Wishlist from '../imports/ui/components/wishlist/Wishlist';
+
 
 
 Meteor.startup(()=>{
@@ -42,6 +45,8 @@ Meteor.startup(()=>{
       <IndexRoute component={ Home }/>
       {/* <Route path='intro' component={Intro}/> */}
       <Route path="login" component={ LoginPage }/>
+      <Route path="signup" component={ SignupPage }/>
+      <Route path="wishlist" component={ Wishlist }/>
 
     </Route>
   </Router>,

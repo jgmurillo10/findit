@@ -15,9 +15,10 @@ class Navbarfix extends Component {
       			</div>
       			<div className="head-t">
       				<ul className="card">
-      					<li><a href="wishlist.html" ><i className="fa fa-heart" aria-hidden="true"></i>Wishlist</a></li>
-      					<li><a href="login.html" ><i className="fa fa-user" aria-hidden="true"></i>Login</a></li>
-      					<li><a href="register.html" ><i className="fa fa-arrow-right" aria-hidden="true"></i>Register</a></li>
+
+                <li><Link to={'/wishlist'} role="button" ><i className="fa fa-heart" aria-hidden="true"></i>Wishlist</Link></li>
+                <li><Link to={'/login'} role="button" ><i className="fa fa-user" aria-hidden="true"></i>Login</Link></li>
+                <li><Link to={'/signup'} role="button" ><i className="fa fa-arrow-right" aria-hidden="true"></i>Register</Link></li>
       					<li><a href="about.html" ><i className="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
       					<li><a href="shipping.html" ><i className="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
       				</ul>
@@ -48,7 +49,8 @@ class Navbarfix extends Component {
       					</div>
       					<div className="collapse navbar-collapse" id="bs-megadropdown-tabs">
       						<ul className="nav navbar-nav ">
-      							<li className=" active"><a href="index.html" className="hyper "><span>Home</span></a></li>
+                  
+      							<li className=" active"><Link to={'/'} role="button" className="hyper "><span>Home</span></Link></li>
 
       							<li className="dropdown ">
       								<a href="#" className="dropdown-toggle  hyper" data-toggle="dropdown" ><span>Kitchen<b className="caret"></b></span></a>
