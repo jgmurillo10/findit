@@ -6,11 +6,15 @@ import { Products } from  '/imports/api/bbyProducts.js';
 import ItemBby from './ItemBby';
 
 class BestBuy extends Component {
+  constructor(props){
+    super(props);
+
+  }
 
   render(){
     return(
       <div>
-        
+
         <div className="row">
           {this.props.products.map(product => {
             console.log(product);

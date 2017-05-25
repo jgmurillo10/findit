@@ -11,9 +11,21 @@ class Results extends Component {
     super(props);
     this.state = {
       query: props.query,
+      selectedMercado: '',
+      selectedBestBuy: '',
     }
 
 
+  }
+  setMercado(i){
+    this.setState({
+      selectedMercado: i,
+    })
+  }
+  setBest(i){
+    this.setState({
+      selectedBestBuy: i,
+    })
   }
   componentDidUpdate(){
     console.log('didupdate');
@@ -25,12 +37,15 @@ class Results extends Component {
   render(){
     return(
       <div className="row">
-        
-        <div className="col-md-6">
-          <MercadoLibre/>
+        Seleccionados
+        {this.state.selectedBestBuy}
+        {this.state.selectedMercado}
+
+        <div className="col-md-offset-1 col-md-5">
+          <MercadoLibre setSelected={this.setMercado.bind(this)} />
         </div>
-        <div className="col-md-6">
-          <BestBuy/>
+        <div className="col-md-5">
+          <BestBuy setSelected={this.setBest.bind(this)} />
         </div>
       </div>
     )

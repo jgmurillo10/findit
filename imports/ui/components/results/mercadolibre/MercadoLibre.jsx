@@ -13,15 +13,6 @@ class MercadoLibre extends Component {
     this.state = {
       userId: '',
     }
-    console.log(Session.get('userId'));
-    console.log(Session.get('hola'));
-
-  }
-  componentDidMount(){
-    console.log(Session.get('userId'));
-  }
-  componentWillUpdate(){
-    console.log(Session.get('userId'));
 
   }
 

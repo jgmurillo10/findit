@@ -20,9 +20,6 @@ class Home extends Component {
     this.setState({query: document.getElementById("query").value})
 
   }
-  componentDidMount(){
-
-  }
   render() {
     return (
       <div>
