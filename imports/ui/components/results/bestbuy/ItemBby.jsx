@@ -3,10 +3,22 @@ import {Meteor} from "meteor/meteor";
 import {Link} from 'react-router';
 
 class ItemBby extends Component {
+  constructor(props){
+    super(props);
+      this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e){
+    e.preventDefault();
+    console.log(e);
+    this.props.setSelected(this.props.product._id);
+
+
+  }
   render(){
+
       //{this.props.result.title}
     return (
-      <div className="products">
+      <div onClick={this.handleClick}  className="products">
 
         <div className="col-md-6 m-wthree">
           <div className="col-m">
