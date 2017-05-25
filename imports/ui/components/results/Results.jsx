@@ -25,7 +25,7 @@ class Results extends Component {
   render(){
     return(
       <div className="row">
-        {this.props.query}
+        
         <div className="col-md-6">
           <MercadoLibre/>
         </div>
