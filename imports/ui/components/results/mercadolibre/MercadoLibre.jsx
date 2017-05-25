@@ -29,9 +29,6 @@ class MercadoLibre extends Component {
     return(
       <div>
         <div className="row">
-          <h1>
-            {this.state.userId}</h1><h1>HOLAAAAAA {this.props.userId} {this.state.userId}</h1>
-
           {this.props.results.map(result => {
             return <Item key={result._id} result={result}/>
           })}

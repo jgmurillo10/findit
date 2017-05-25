@@ -17,12 +17,10 @@ Meteor.methods({
 
   search(query){
     Results.remove({userId: id});
-    console.log('call');
     HTTP.call('GET', 'https://api.mercadolibre.com/sites/MCO/search', {
      params: { q: query.query }
    }, function(error, result) {
      if (!error) {
-       console.log(result);
        result.data.results.map(item => {
          item.userId=id;
          Results.insert(item);

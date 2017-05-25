@@ -10,7 +10,7 @@ class BestBuy extends Component {
   render(){
     return(
       <div>
-        BestBuy
+        
         <div className="row">
           {this.props.products.map(product => {
             console.log(product);
