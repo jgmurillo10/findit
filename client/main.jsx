@@ -39,8 +39,6 @@ import Results from '../imports/ui/components/results/Results';
 Meteor.startup(()=>{
    $('html').attr('lang', 'es');
    render (
-
-
     <Router history={ browserHistory } >
     <Route path='/' component={ App }>
       <IndexRoute component={ Home }/>
@@ -48,7 +46,8 @@ Meteor.startup(()=>{
       <Route path="login" component={ LoginPage }/>
       <Route path="signup" component={ SignupPage }/>
       <Route path="wishlist" component={ Wishlist }/>
-    
+
+
     </Route>
   </Router>,
      document.getElementById('render-target')
