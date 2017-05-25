@@ -13,6 +13,7 @@ class Results extends Component {
       query: props.query,
       selectedMercado: '',
       selectedBestBuy: '',
+      selected: false,
     }
 
 
@@ -20,19 +21,24 @@ class Results extends Component {
   setMercado(i){
     this.setState({
       selectedMercado: i,
+      selected: true,
     })
   }
   setBest(i){
     this.setState({
       selectedBestBuy: i,
+      selected: true,
     })
   }
-  componentDidUpdate(){
-    console.log('didupdate');
-    console.log('if');
-    Meteor.call("search", {query: this.props.query});
-    Meteor.call("searchBby",{query:this.props.query});
 
+  componentWillUpdate(nextProps){
+    console.log('will update', nextProps);
+    if(!(this.props.query === nextProps.query)){
+      if(!this.state.selected){
+        Meteor.call("search", {query: nextProps.query});
+        Meteor.call("searchBby",{query:nextProps.query});
+      }
+    }
   }
   render(){
     return(
@@ -41,10 +47,10 @@ class Results extends Component {
         {this.state.selectedBestBuy}
         {this.state.selectedMercado}
 
-        <div className="col-md-offset-1 col-md-5">
+        <div className="col-md-offset-1 col-md-5 col-xs-6">
           <MercadoLibre setSelected={this.setMercado.bind(this)} />
         </div>
-        <div className="col-md-5">
+        <div className="col-md-5 col-xs-6">
           <BestBuy setSelected={this.setBest.bind(this)} />
         </div>
       </div>
