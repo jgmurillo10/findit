@@ -11,13 +11,13 @@ class ItemBby extends Component {
         <div className="col-md-6 m-wthree">
           <div className="col-m">
             <a href="#" data-toggle="modal" data-target="#myModal1" className="offer-img">
-              <img src={this.props.product.image} className="img-responsive" alt=""/>
-
+              <img src={this.props.product.thumbnailImage} className="img-responsive" alt=""/>
+            {console.log('thumbnail'+this.props.product.thumbnailImage)}
             </a>
             <div className="mid-1">
               <div className="women">
                 <h6><a href="single.html">{this.props.product.name}</a></h6>
-              {console.log(this.props.product.name)}
+
               </div>
               <div className="mid-2">
                 <p ><em className="item_price">$ {this.props.product.salePrice} USD </em></p>
