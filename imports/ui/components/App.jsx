@@ -7,6 +7,17 @@ import Offers from './offers/Offers.jsx';
 import Carousel from './carousel/Carousel.jsx';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      userId: '',
+    }
+  }
+  componentDidMount(){
+    this.setState({
+      userId: Meteor.call("getUserId")
+    })
+  }
 
   render() {
     return (

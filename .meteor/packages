@@ -27,3 +27,4 @@ accounts-password
 accounts-facebook
 aldeed:simple-schema
 http
+session
