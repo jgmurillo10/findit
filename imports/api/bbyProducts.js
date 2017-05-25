@@ -1,14 +1,19 @@
 import {Meteor} from "meteor/meteor";
 import { Mongo } from "meteor/mongo";
+import { Session } from 'meteor/session';
 
 export const Products = new Mongo.Collection("products");
 
-  // Meteor.publish("bby", function bbyPublication() {
-  //   return bby.find({}, {sort: {created_at: -1}, limit:10});
-  // });
+if(Meteor.isClient){
+  if(!Meteor.user()){
+    var id = new Mongo.ObjectID();
+    console.log('hi',id);
+    Session.set('userId2', id);
+  }
+}
     Meteor.methods({
       searchBby(query){
-        Products.remove({});
+        Products.remove({userId2: id});
 
         console.log("getprd");
         let bby = require('bestbuy')(process.env.BBY_API_KEY);
@@ -19,6 +24,8 @@ export const Products = new Mongo.Collection("products");
               console.log('Found %d products. First match "%s" is $%d', data.total, data.products[0].name, data.products[0].salePrice);
               console.log(data);
               data.products.map(item => {
+                item.userId=id;
+                console.log("bby " , item.userId);
                 Products.insert(item);
               })
             }
