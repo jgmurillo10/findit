@@ -1,22 +1,26 @@
 import {Meteor} from "meteor/meteor";
 import { Mongo } from "meteor/mongo";
-let bby = require('bestbuy')('tkCvEbHemKG6ItqbVztrPQXF');
 
-// export const bby = new Mongo.Collection("bby");
-
+export const Products = new Mongo.Collection("products");
+Products.insert({});
   // Meteor.publish("bby", function bbyPublication() {
   //   return bby.find({}, {sort: {created_at: -1}, limit:10});
   // });
     Meteor.methods({
       "bby.getprd"(){
+        console.log("getprd");
+        let bby = require('bestbuy')(process.env.BBY_API_KEY);
         bby.products('(search=mario)', {show: 'salePrice,name', pageSize: 1})
-          .then(function(data){
+          .then(Meteor.bindEnvironment(function(data){
             if (data.total === 0) console.log('No products found');
-            else console.log('Found %d products. First match "%s" is $%d', data.total, data.products[0].name, data.products[0].salePrice);
-          })
+            else{
+              console.log('Found %d products. First match "%s" is $%d', data.total, data.products[0].name, data.products[0].salePrice);
+              console.log(data);
+              
+              Products.insert(data);
+          }}))
           .catch(function(err){
             console.warn(err);
           });
       }
     });
-  
