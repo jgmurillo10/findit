@@ -12,7 +12,7 @@ export const Products = new Mongo.Collection("products");
 
         console.log("getprd");
         let bby = require('bestbuy')(process.env.BBY_API_KEY);
-        bby.products('(search='+query.query+')', {show: 'salePrice,name,image', pageSize: 10})
+        bby.products('(search='+query.query+')&(categoryPath.id=pcmcat209400050001)', {show: 'salePrice,name,thumbnailImage', pageSize: 10})
           .then(Meteor.bindEnvironment(function(data){
             if (data.total === 0) console.log('No products found');
             else{
