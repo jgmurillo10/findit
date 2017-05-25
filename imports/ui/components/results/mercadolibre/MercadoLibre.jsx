@@ -9,20 +9,6 @@ import { Session } from 'meteor/session';
 class MercadoLibre extends Component {
   constructor(props){
     super(props);
-
-    this.state = {
-      userId: '',
-    }
-    console.log(Session.get('userId'));
-    console.log(Session.get('hola'));
-
-  }
-  componentDidMount(){
-    console.log(Session.get('userId'));
-  }
-  componentWillUpdate(){
-    console.log(Session.get('userId'));
-
   }
 
   render(){
@@ -30,7 +16,7 @@ class MercadoLibre extends Component {
       <div>
         <div className="row">
           {this.props.results.map(result => {
-            return <Item key={result._id} result={result}/>
+            return <Item key={result._id} setSelected={this.props.setSelected.bind(this)} result={result}/>
           })}
         </div>
       </div>

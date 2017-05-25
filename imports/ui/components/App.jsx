@@ -13,11 +13,11 @@ class App extends Component {
       userId: '',
     }
   }
-  componentDidMount(){
-    this.setState({
-      userId: Meteor.call("getUserId")
-    })
-  }
+  // componentDidMount(){
+  //   this.setState({
+  //     userId: Meteor.call("getUserId")
+  //   })
+  // }
 
   render() {
     return (
