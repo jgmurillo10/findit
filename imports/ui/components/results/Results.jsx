@@ -6,7 +6,6 @@ import { ResultsMongo } from "../../../api/results.js";
 import MercadoLibre from "./mercadolibre/MercadoLibre.jsx"
 
 
->>>>>>> 27f26c2efaea861a3b8e3cc478c7e98bfe156616
 class Results extends Component {
   constructor(props){
     super(props);
