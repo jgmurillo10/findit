@@ -16,7 +16,7 @@ if(Meteor.isClient){
 Meteor.methods({
 
   search(query){
-    Results.remove({});
+    Results.remove({userId: id});
     console.log('call');
     HTTP.call('GET', 'https://api.mercadolibre.com/sites/MCO/search', {
      params: { q: query.query }
