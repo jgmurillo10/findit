@@ -7,7 +7,9 @@ export const Results = new Mongo.Collection('results');
 
 Meteor.methods({
   search(query){
-    HTTP.call('GET', 'https://api.mercadolibre.com/sites/MLA/search', {
+    Results.remove({});
+    console.log('call');
+    HTTP.call('GET', 'https://api.mercadolibre.com/sites/MCO/search', {
      params: { q: query.query }
    }, function(error, result) {
      if (!error) {
