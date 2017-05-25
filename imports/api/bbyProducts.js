@@ -7,10 +7,10 @@ export const Products = new Mongo.Collection("products");
   //   return bby.find({}, {sort: {created_at: -1}, limit:10});
   // });
     Meteor.methods({
-      "bby.getprd"(){
+      searchBby(query){
         console.log("getprd");
         let bby = require('bestbuy')(process.env.BBY_API_KEY);
-        bby.products('(search=mario)', {show: 'salePrice,name', pageSize: 1})
+        bby.products('(search=iphone)', {show: 'salePrice,name', pageSize: 10})
           .then(Meteor.bindEnvironment(function(data){
             if (data.total === 0) console.log('No products found');
             else{

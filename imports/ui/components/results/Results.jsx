@@ -19,7 +19,7 @@ class Results extends Component {
     console.log('didupdate');
     console.log('if');
     Meteor.call("search", {query: this.props.query});
-
+    Meteor.call("searchBby",{query:this.props.query});
 
   }
   render(){
