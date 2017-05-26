@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { HTTP } from 'meteor/http';
 import { Session } from 'meteor/session';
 
-export const Results = new Mongo.Collection('results');
+export const ResultsMercado = new Mongo.Collection('results');
 if(Meteor.isClient){
   if(!Meteor.user()){
     var id = new Mongo.ObjectID();
@@ -16,17 +16,22 @@ if(Meteor.isClient){
 Meteor.methods({
 
   search(query){
-    Results.remove({userId: id});
+    ResultsMercado.remove({userId: id});
     HTTP.call('GET', 'https://api.mercadolibre.com/sites/MCO/search', {
      params: { q: query.query }
    }, function(error, result) {
      if (!error) {
        result.data.results.map(item => {
          item.userId=id;
-         Results.insert(item);
+         ResultsMercado.insert(item);
        })
      }
     });
+  },
+  getItemMercadoLibre(item_id){
+    console.log(item_id);
+
+    ResultsMercado.find({_id: item_id});
   }
 
 });

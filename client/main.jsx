@@ -15,6 +15,7 @@ import '/imports/assets/css/style.css';
 import '/imports/assets/css/font-awesome.css';
 import '/imports/assets/css/jstarbox.css';
 //JS
+import '/imports/assets/js/bootstrap.js';
 import '/imports/assets/js/event.js';
 import '/imports/assets/js/jquery-1.11.1.min.js';
 import '/imports/assets/js/move-top.js';

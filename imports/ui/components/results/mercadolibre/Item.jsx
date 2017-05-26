@@ -1,7 +1,13 @@
 import React, {Component} from "react";
 import {Meteor} from "meteor/meteor";
 import {Link} from 'react-router';
-
+var bgColors = { "Default": "#81b71a",
+                    "Blue": "#00B1E1",
+                    "Cyan": "#37BC9B",
+                    "Green": "#8CC152",
+                    "Red": "#E9573F",
+                    "Yellow": "#F6BB42",
+};
 
 class Item extends Component {
   constructor(props){
@@ -11,7 +17,6 @@ class Item extends Component {
   }
   handleClick(e){
     e.preventDefault();
-    console.log(e);
     this.props.setSelected(this.props.result._id);
 
 
@@ -19,11 +24,11 @@ class Item extends Component {
   render(){
       //{this.props.result.title}
     return (
-      <div onClick={this.handleClick} className="products">
+      <div onClick={this.handleClick}  style={{backgroundColor: "black"}} className="products">
 
         <div className="col-md-6 m-wthree">
           <div className="col-m">
-            <a href="#" data-toggle="modal" data-target="#myModal1" className="offer-img">
+            <a href="#" data-toggle="modal" data-target="#myModal" className="offer-img">
               <img src={this.props.result.thumbnail} className="img-responsive" alt=""/>
 
             </a>
