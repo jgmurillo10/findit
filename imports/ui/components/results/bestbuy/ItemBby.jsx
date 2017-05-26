@@ -1,7 +1,15 @@
 import React, {Component} from "react";
 import {Meteor} from "meteor/meteor";
 import {Link} from 'react-router';
-
+var sectionStyle = {
+  height: "350px",
+  margin: "5px",
+  backgroundColor: "white"
+};
+var imageStyle = {
+  height: "85px",
+  width: "40px"
+}
 class ItemBby extends Component {
   constructor(props){
     super(props);
@@ -21,9 +29,9 @@ class ItemBby extends Component {
       <div onClick={this.handleClick}  className="products">
 
         <div className="col-md-6 m-wthree">
-          <div className="col-m">
+          <div className="col-m"    style={sectionStyle} >
             <a href="#" data-toggle="modal" data-target="#myModal1" className="offer-img">
-              <img src={this.props.product.thumbnailImage} className="img-responsive" alt=""/>
+              <img src={this.props.product.thumbnailImage} style={imageStyle}  className="img-responsive" alt=""/>
             {console.log('thumbnail'+this.props.product.thumbnailImage)}
             </a>
             <div className="mid-1">

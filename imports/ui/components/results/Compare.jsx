@@ -46,7 +46,8 @@ class Compare extends Component {
                   {this.props.mercado.price}
                 </div>
                 <div className="col-md-6">
-
+                  {this.props.best.name}
+                  {this.props.best.salePrice}
                 </div>
               </div>
 

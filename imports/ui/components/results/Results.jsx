@@ -45,6 +45,10 @@ class Results extends Component {
       selectedBestBuy: i,
       selected: true,
     })
+    var resTemp = Products.find({_id: i});
+    this.setState({
+      best : resTemp.fetch()[0]
+    })
 
   }
 
@@ -69,8 +73,8 @@ class Results extends Component {
       <div>
 
         {/*Modal Items selected*/}
-        {this.state.mercado?
-          <Compare mercado={this.state.mercado} reset={this.reset.bind(this)}/>
+        {this.state.mercado && this.state.best?  
+          <Compare mercado={this.state.mercado} best={this.state.best} reset={this.reset.bind(this)}/>
         :
         ''
         }
