@@ -22,7 +22,11 @@ class BestBuy extends Component {
       <div>
         {this.props&&this.props.products?
           <div>
-            <h2>Best Buy</h2>
+            {this.props.query?
+              <h2>BestBuy Results</h2>
+            :
+            ''
+          }
             <div className="row">
             {this.props.products.map(product => {
               return <ItemBby key={product._id}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === product._id:false }  setSelected={this.props.setSelected.bind(this)} product={product}/>

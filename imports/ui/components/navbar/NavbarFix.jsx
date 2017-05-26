@@ -48,11 +48,11 @@ class Navbarfix extends Component {
       		<div className="container">
 
       			<div className="logo">
-      				<h1 ><a href="index.html"><b>T<br></br>H<br></br>E</b>  Find it cheaper<span>The Best Supermarket</span></a></h1>
+      				<h1 ><a href="index.html"><b>T<br></br>H<br></br>E</b>  Find it cheaper<span>The Best e-market</span></a></h1>
       			</div>
       			<div className="head-t">
                 {logged?
-                  <h3>Bienvenido {address} </h3>
+                  <h3>Welcome,  {address} </h3>
 
                   :
                   <a ></a>
@@ -62,6 +62,9 @@ class Navbarfix extends Component {
                   <ul className="card">
                     <li><Link to={'/wishlist'} role="button" ><i className="fa fa-heart" aria-hidden="true"></i>Wishlist</Link></li>
                     <li><a role="button" data-toggle="collapse" href="#" onClick={this.logout}> <i className="fa fa-sign-out"></i>  Log out</a></li>
+                    <li><a href="about.html" ><i className="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
+            				<li><a href="shipping.html" ><i className="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
+
                   </ul>
 
                 :
@@ -71,10 +74,7 @@ class Navbarfix extends Component {
                   </ul>
 
                 }
-              <ul className="card">
-                <li><a href="about.html" ><i className="fa fa-file-text-o" aria-hidden="true"></i>Order History</a></li>
-      					<li><a href="shipping.html" ><i className="fa fa-ship" aria-hidden="true"></i>Shipping</a></li>
-      				</ul>
+
       			</div>
 
       			<div className="header-ri">
