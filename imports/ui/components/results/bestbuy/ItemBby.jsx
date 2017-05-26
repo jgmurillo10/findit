@@ -52,7 +52,7 @@ class ItemBby extends Component {
 
               </div>
               <div className="mid-2">
-                <p ><em className="item_price">$ {this.props.product.salePrice} USD </em></p>
+                <p ><em className="item_price">$ {Math.floor(this.props.product.salePrice*2911)} COP </em></p>
                   <div className="block">
                   <div className="starbox small ghosting"> </div>
                 </div>
