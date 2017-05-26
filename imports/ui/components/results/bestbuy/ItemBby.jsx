@@ -38,7 +38,7 @@ class ItemBby extends Component {
 
       //{this.props.result.title}
     return (
-      <div onClick={this.handleClick}  className="products">
+      <div className="products">
 
         <div className="col-md-6 m-wthree">
           <div className="col-m" style={this.props.isActive? selectedStyle: unselectedStyle}>
