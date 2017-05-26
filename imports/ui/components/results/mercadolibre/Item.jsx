@@ -38,7 +38,7 @@ class Item extends Component {
   render(){
 
     return (
-      <div onClick={this.handleClick} className="products">
+      <div className="products">
 
         <div className="col-md-6 m-wthree item">
 
@@ -61,7 +61,9 @@ class Item extends Component {
               </div>
               <div className="add">
                  <button className="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
-              </div>
+                   <button className="btn btn-danger my-cart-btn my-cart-b " onClick={this.handleClick} >Compare</button>
+
+            </div>
 
             </div>
           </div>
