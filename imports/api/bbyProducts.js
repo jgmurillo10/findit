@@ -17,7 +17,7 @@ if(Meteor.isClient){
         console.log("category id", categoria);
         console.log("getprd");
         let bby = require('bestbuy')(process.env.BBY_API_KEY);
-        bby.products('(search='+query+')&(categoryPath.id=' +categoria+')', {show: 'salePrice,name,thumbnailImage', pageSize: 10})
+        bby.products('(search='+query+')&(categoryPath.id=' +categoria+')', {show: 'name,salePrice,shippingCost,url,shipping,customerReviewAverage,description', pageSize: 10})
           .then(Meteor.bindEnvironment(function(data){
             if (data.total === 0) console.log('No products found');
             else{

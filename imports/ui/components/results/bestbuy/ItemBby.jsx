@@ -10,6 +10,17 @@ var imageStyle = {
   height: "85px",
   width: "40px"
 }
+
+var selectedStyle = {
+  height: "350px",
+  margin: "5px",
+  backgroundColor: "lightgrey",
+};
+var unselectedStyle = {
+  height: "350px",
+  margin: "5px",
+  backgroundColor: "white",
+};
 class ItemBby extends Component {
   constructor(props){
     super(props);
@@ -29,10 +40,10 @@ class ItemBby extends Component {
       <div onClick={this.handleClick}  className="products">
 
         <div className="col-md-6 m-wthree">
-          <div className="col-m"    style={sectionStyle} >
+          <div className="col-m" style={this.props.isActive? selectedStyle: unselectedStyle}>
             <a href="#" data-toggle="modal" data-target="#myModal1" className="offer-img">
               <img src={this.props.product.thumbnailImage} style={imageStyle}  className="img-responsive" alt=""/>
-            
+
             </a>
             <div className="mid-1">
               <div className="women">
