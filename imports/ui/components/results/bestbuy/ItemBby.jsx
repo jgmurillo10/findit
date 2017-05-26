@@ -30,6 +30,7 @@ class ItemBby extends Component {
     e.preventDefault();
     console.log(e);
     this.props.setSelected(this.props.product._id);
+    this.props.onClick(this.props.product._id);
 
 
   }
@@ -59,6 +60,8 @@ class ItemBby extends Component {
               </div>
               <div className="add">
                  <button className="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
+                 <button className="btn btn-danger my-cart-btn my-cart-b " onClick={this.handleClick} >Choose</button>
+
               </div>
 
             </div>

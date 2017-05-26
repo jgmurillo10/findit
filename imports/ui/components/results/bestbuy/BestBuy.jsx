@@ -8,17 +8,23 @@ import ItemBby from './ItemBby';
 class BestBuy extends Component {
   constructor(props){
     super(props);
-
+    this.state = {
+      activeIndex: null,
+    }
+    this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick(index) {
+    console.log('clic', index);
+    this.setState({activeIndex: index});
   }
-
   render(){
     return(
       <div>
 
         <div className="row">
           {this.props.products.map(product => {
-            
-            return <ItemBby key={product._id} setSelected={this.props.setSelected.bind(this)} product={product}/>
+
+            return <ItemBby key={product._id}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === product._id:false }  setSelected={this.props.setSelected.bind(this)} product={product}/>
 
           })}
         </div>
