@@ -12,12 +12,12 @@ if(Meteor.isClient){
   }
 }
     Meteor.methods({
-      searchBby(query){
-        Products.remove({userId2: id});
-
+      searchBby(query,categoria){
+        Products.remove({userId: id});
+        console.log("category id", categoria);
         console.log("getprd");
         let bby = require('bestbuy')(process.env.BBY_API_KEY);
-        bby.products('(search='+query.query+')&(categoryPath.id=pcmcat209400050001)', {show: 'salePrice,name,thumbnailImage', pageSize: 10})
+        bby.products('(search='+query+')&(categoryPath.id=' +categoria+')', {show: 'salePrice,name,thumbnailImage', pageSize: 10})
           .then(Meteor.bindEnvironment(function(data){
             if (data.total === 0) console.log('No products found');
             else{

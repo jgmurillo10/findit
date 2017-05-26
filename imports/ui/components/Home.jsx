@@ -11,15 +11,23 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      query :''
+      query :'',
+      categoria:''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleSubmit(e){
     e.preventDefault();
     this.setState({query: document.getElementById("query").value})
-
   }
+  handleChange(event) {
+    event.preventDefault();
+
+   this.setState({categoria: event.target.value});
+   console.log(this.state.categoria);
+ }
+
   render() {
     return (
       <div>
@@ -28,6 +36,16 @@ class Home extends Component {
           <div className="banner-info">
             <h3>It is a long established fact that a reader will be distracted by
             the readable </h3>
+            <div>
+               <select value={this.state.categoria} onChange={this.handleChange}>
+                  <option selected disabled>Categorias</option>
+                  <option value="pcmcat209400050001">Celulares</option>
+                  <option value="abcat0501000">Desktops</option>
+                  <option value="abcat0401000">Camaras</option>
+                  <option value="abcat0502000">Portátiles</option>
+
+               </select>
+            </div>
             <div className="search-form">
               <form onSubmit={this.handleSubmit}>
                 <input id="query" type="text" placeholder="Search..." name="Search..."/>
@@ -37,7 +55,7 @@ class Home extends Component {
           </div>
           </div>
         </div>
-        <Results query={this.state.query} />
+        <Results query={this.state.query} categoria={this.state.categoria}/>
 
 
       </div>
