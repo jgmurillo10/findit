@@ -36,6 +36,7 @@ class Results extends Component {
   reset(){
     this.setState({
       mercado : '',
+      best : '',
     })
   }
   setBest(i){
@@ -44,8 +45,7 @@ class Results extends Component {
       selectedBestBuy: i,
       selected: true,
     })
-    var resTem = ResultsMercado.find({_id: i});
-    this.state.best = resTem.fetch()[0];
+    
   }
 
   // componentDidUpdate(){
@@ -56,6 +56,7 @@ class Results extends Component {
   // }
 
   componentWillUpdate(nextProps){
+    console.log('willupdate');
     if(!(this.props.query === nextProps.query)){
       if(!this.state.selected){
         console.log('GET');
