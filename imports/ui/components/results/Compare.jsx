@@ -85,6 +85,7 @@ class Compare extends Component {
 
                      </tbody>
                    </Table>
+                   <h3>Price difference: { Math.abs(Math.floor(this.props.best.salePrice*2911) - this.props.mercado.price) }</h3>
                 </div>
               </div>
 
