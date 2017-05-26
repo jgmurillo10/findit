@@ -29,9 +29,9 @@ Meteor.methods({
     });
   },
   getItemMercadoLibre(item_id){
-    console.log(item_id);
+    console.log(item_id, 'item_id');
 
-    ResultsMercado.find({_id: item_id});
+    ResultsMercado.findOne({_id: item_id});
   }
 
 });

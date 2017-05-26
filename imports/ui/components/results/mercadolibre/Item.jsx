@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Meteor} from "meteor/meteor";
 import {Link} from 'react-router';
 import Button from 'react-bootstrap/lib/Button';
-import '/client/main.css';
+
 var sectionStyle = {
   height: "350px",
   margin: "5px",
@@ -50,7 +50,7 @@ class Item extends Component {
             </a>
             <div className="mid-1">
               <div className="women">
-                <h6><a href="single.html">{this.props.result.title}</a></h6>
+                <h6><Link item={this.props.result} to={'/item/'+ this.props.result._id}>{this.props.result.title}</Link></h6>
               </div>
               <div className="mid-2">
                 <p ><em className="item_price">$ {this.props.result.price} COP </em></p>
@@ -61,7 +61,7 @@ class Item extends Component {
               </div>
               <div className="add">
                  <button className="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
-                   <button className="btn btn-danger my-cart-btn my-cart-b " onClick={this.handleClick} >Choose</button>
+                 <button className="btn btn-danger my-cart-btn my-cart-b " onClick={this.handleClick} >Choose</button>
 
             </div>
 
