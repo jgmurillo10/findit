@@ -32,7 +32,7 @@ class ItemBby extends Component {
           <div className="col-m"    style={sectionStyle} >
             <a href="#" data-toggle="modal" data-target="#myModal1" className="offer-img">
               <img src={this.props.product.thumbnailImage} style={imageStyle}  className="img-responsive" alt=""/>
-            {console.log('thumbnail'+this.props.product.thumbnailImage)}
+            
             </a>
             <div className="mid-1">
               <div className="women">

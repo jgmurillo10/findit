@@ -2,58 +2,33 @@ import React, {Component} from "react";
 import {Meteor} from "meteor/meteor";
 import {Link} from 'react-router';
 import Button from 'react-bootstrap/lib/Button';
-var bgColors = { "Default": "#81b71a",
-                    "Blue": "#00B1E1",
-                    "Cyan": "#37BC9B",
-                    "Green": "#8CC152",
-                    "Red": "#E9573F",
-                    "Yellow": "#F6BB42",
-};
 var sectionStyle = {
   height: "350px",
   margin: "5px",
   backgroundColor: "white"
 };
-var selectedStyle = {
-  height: "350px",
-  margin: "5px",
-  backgroundColor: "lightgrey"
-};
-var unselectedStyle = {
-  height: "350px",
-  margin: "5px",
-  backgroundColor: "white"
-};
+
 class Item extends Component {
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.state = {
-      color: 'Black'
-    }
+
 
   }
-  componentDidUpdate(){
-    if(this.props.selected === this.props.result._id){
-        sectionStyle = selectedStyle;
-    }
-    else{
-      sectionStyle = unselectedStyle;
-    }
-  }
+
   handleClick(e){
     e.preventDefault();
     this.props.setSelected(this.props.result._id);
-
-
+    this.props.onClick(this.props.index);
   }
+
   render(){
       //{this.props.result.title}
     return (
       <div onClick={this.handleClick} className="products">
 
         <div className="col-md-6 m-wthree">
-          <div className="col-m"   style={sectionStyle} >
+          <div className="col-m"   style={sectionStyle}  >
             <a href="#" data-toggle="modal" data-target="#myModal" className="offer-img">
               <img src={this.props.result.thumbnail} className="img-responsive" alt=""/>
 

@@ -9,14 +9,21 @@ import { Session } from 'meteor/session';
 class MercadoLibre extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      activeIndex: null,
+    }
+    this.handleClick = this.handleClick.bind(this);
   }
+  handleClick(index) {
+   this.setState({activeIndex: index});
+ }
 
   render(){
     return(
       <div>
         <div>
           {this.props.results.map(result => {
-            return <Item key={result._id} selected={this.props.selected} setSelected={this.props.setSelected.bind(this)} result={result}/>
+            return <Item key={result._id} selected={this.props.selected}  onClick={ this.handleClick } isActive={ this.state.activeIndex === result._id } setSelected={this.props.setSelected.bind(this)} result={result}/>
           })}
         </div>
       </div>

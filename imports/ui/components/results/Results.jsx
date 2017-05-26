@@ -60,11 +60,9 @@ class Results extends Component {
   // }
 
   componentWillUpdate(nextProps){
-    console.log('willupdate');
     if(!(this.props.query === nextProps.query)){
         Meteor.call("search", {query: nextProps.query});
         Meteor.call("searchBby",nextProps.query, nextProps.categoria);
-
     }
   }
   render(){
@@ -73,7 +71,7 @@ class Results extends Component {
       <div>
 
         {/*Modal Items selected*/}
-        {this.state.mercado && this.state.best?  
+        {this.state.mercado && this.state.best?
           <Compare mercado={this.state.mercado} best={this.state.best} reset={this.reset.bind(this)}/>
         :
         ''
@@ -85,7 +83,7 @@ class Results extends Component {
             <MercadoLibre selected={this.state.selectedMercado} setSelected={this.setMercado.bind(this)} />
           </div>
           <div className="col-md-5 col-xs-6">
-            <BestBuy setSelected={this.setBest.bind(this)} />
+            <BestBuy selected={this.state.selectedBestBuy} setSelected={this.setBest.bind(this)} />
           </div>
         </div>
 

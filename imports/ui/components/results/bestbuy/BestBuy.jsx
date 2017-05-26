@@ -17,7 +17,7 @@ class BestBuy extends Component {
 
         <div className="row">
           {this.props.products.map(product => {
-            console.log(product);
+            
             return <ItemBby key={product._id} setSelected={this.props.setSelected.bind(this)} product={product}/>
 
           })}
