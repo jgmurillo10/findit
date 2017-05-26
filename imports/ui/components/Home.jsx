@@ -23,9 +23,17 @@ class Home extends Component {
   }
   handleChange(event) {
     event.preventDefault();
+   //
+  //  this.setState({categoria: event.target.value});
+  //  console.log(this.state.categoria);
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-   this.setState({categoria: event.target.value});
-   console.log(this.state.categoria);
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state.categoria);
  }
 
   render() {
@@ -37,18 +45,24 @@ class Home extends Component {
             <h3>It is a long established fact that a reader will be distracted by
             the readable </h3>
             <div>
-               <select value={this.state.categoria} onChange={this.handleChange}>
-                  <option selected disabled>Categorias</option>
+               {/* <select value={this.state.categoria} onChange={this.handleChange}>
+                  <option defaultValue>Categorias</option>
                   <option value="pcmcat209400050001">Celulares</option>
                   <option value="abcat0501000">Desktops</option>
                   <option value="abcat0401000">Camaras</option>
                   <option value="abcat0502000">Portátiles</option>
-
-               </select>
+               </select> */}
             </div>
             <div className="search-form">
               <form onSubmit={this.handleSubmit}>
-                <input id="query" type="text" placeholder="Search..." name="Search..."/>
+                <select name='categoria' value={this.state.categoria} onChange={this.handleChange}>
+                   <option defaultValue>Categorias</option>
+                   <option value="pcmcat209400050001">Celulares</option>
+                   <option value="abcat0501000">Desktops</option>
+                   <option value="abcat0401000">Camaras</option>
+                   <option value="abcat0502000">Portátiles</option>
+                </select>
+                <input name='query' id="query" type="text" placeholder="Search..." name="Search..."/>
                 <input type="submit" value=" " />
               </form>
             </div>

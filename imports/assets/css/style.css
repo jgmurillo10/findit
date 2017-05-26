@@ -503,7 +503,7 @@ select{
     padding: 10px;
     outline: none;
     font-size: 1em;
-    color: #fff;
+    /*color: #fff;*/
     border: 1px solid #FFF;
     background: rgba(255, 255, 255, 0.45);
 }
@@ -524,7 +524,7 @@ select{
     -ms-transition: 0.5s all;
 }
  ::-webkit-input-placeholder{
-	color:#fff;
+	/*color:#fff;*/
 }
 
 :-moz-placeholder { /* Firefox 18- */
