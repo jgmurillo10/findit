@@ -7,13 +7,7 @@ import { Products } from "../../../api/bbyProducts.js";
 import MercadoLibre from "./mercadolibre/MercadoLibre.jsx";
 import { Session } from 'meteor/session';
 import Compare from './Compare.jsx';
-var bgColors = { "Default": "#81b71a",
-                    "Blue": "#00B1E1",
-                    "Cyan": "#37BC9B",
-                    "Green": "#8CC152",
-                    "Red": "#E9573F",
-                    "Yellow": "#F6BB42",
-};
+
 class Results extends Component {
   constructor(props){
     super(props);
@@ -39,7 +33,11 @@ class Results extends Component {
       mercado : resTem.fetch()[0]
     })
   }
-
+  reset(){
+    this.setState({
+      mercado : '',
+    })
+  }
   setBest(i){
 
     this.setState({
@@ -73,7 +71,7 @@ class Results extends Component {
 
         {/*Modal Items selected*/}
         {this.state.mercado?
-          <Compare mercado={this.state.mercado}/>
+          <Compare mercado={this.state.mercado} reset={this.reset.bind(this)}/>
         :
         ''
         }
@@ -81,7 +79,7 @@ class Results extends Component {
 
 
           <div className="col-md-offset-1 col-md-5 col-xs-6">
-            <MercadoLibre setSelected={this.setMercado.bind(this)} />
+            <MercadoLibre selected={this.state.selectedMercado} setSelected={this.setMercado.bind(this)} />
           </div>
           <div className="col-md-5 col-xs-6">
             <BestBuy setSelected={this.setBest.bind(this)} />

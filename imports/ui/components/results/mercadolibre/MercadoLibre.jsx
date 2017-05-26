@@ -14,9 +14,9 @@ class MercadoLibre extends Component {
   render(){
     return(
       <div>
-        <div className="row">
+        <div>
           {this.props.results.map(result => {
-            return <Item key={result._id} setSelected={this.props.setSelected.bind(this)} result={result}/>
+            return <Item key={result._id} selected={this.props.selected} setSelected={this.props.setSelected.bind(this)} result={result}/>
           })}
         </div>
       </div>

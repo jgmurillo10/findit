@@ -6,6 +6,7 @@ import {Router,Route,Link, browserHistory, IndexRoute} from 'react-router';
 
 
 import './main.html';
+import './main.css';
 //  --------  Assets ----------
 //CSS
     //<!-- //for-mobile-apps -->

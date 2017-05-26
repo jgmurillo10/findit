@@ -6,92 +6,63 @@ import { ResultsMercado } from "../../../api/results.js";
 import { Products } from "../../../api/bbyProducts.js";
 import MercadoLibre from "./mercadolibre/MercadoLibre.jsx";
 import { Session } from 'meteor/session';
+import { Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 class Compare extends Component {
   constructor(props){
     super(props);
+    this.close = this.close.bind(this);
+    this.open = this.open.bind(this);
+    this.state = {
+      showModal: true,
+    }
   }
+  close() {
+   this.setState({ showModal: false });
+   this.props.reset();
+ }
+
+ open() {
+   this.setState({ showModal: true });
+ }
   render(){
-    if(!this.props.mercado)
-    return(<div></div>);
-    else{
+
     return(
       <div>
 
-          <a className="btn" data-toggle="modal" data-target="#myModal" >Launch Modal</a>
-              <div className="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel">
-                <div className="modal-dialog" role="document">
-                  <div className="modal-content modal-info">
-                    <div className="modal-header">
-                      <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
-                    <div className="modal-body modal-spa">
-                      <div className="row">
+        <Modal show={this.state.showModal} onHide={this.close} bsSize="large" aria-labelledby="contained-modal-title-lg">
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-lg">Comparing </Modal.Title>
 
-
-                      { this.props.mercado ?
-                        <div>
-                        <div className="col-md-6">
-
-                          <h3>{this.props.mercado._id}</h3>
-                          <div className="item">
-                            <img src={this.props.mercado.thumbnail} className="img-responsive" alt=""/>
-                          </div>
-                          <p className="in-para"> .</p>
-                          <div className="price_single">
-                            <span className="reducedfrom ">
-                              $ {this.props.mercado.price} COP
-                            </span>
-
-                           <div className="clearfix"></div>
-                          </div>
-                          <h4 className="quick">Quick Overview:</h4>
-                          <p className="quick_desc">{this.props.mercado.title}</p>
-                           <div className="add-to">
-                               <button className="btn btn-danger my-cart-btn my-cart-btn1 " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
-                            </div>
-
-                            <div className="clearfix"> </div>
-
-                        </div>
-
-                        <div className="col-md-6">
-
-                          <h3>{this.props.mercado._id}</h3>
-                          <div className="item">
-                            <img src={this.props.mercado.thumbnail} className="img-responsive" alt=""/>
-                          </div>
-                          <p className="in-para"> .</p>
-                          <div className="price_single">
-                            <span className="reducedfrom ">
-                              $ {this.props.mercado.price} COP
-                            </span>
-
-                           <div className="clearfix"></div>
-                          </div>
-                          <h4 className="quick">Quick Overview:</h4>
-                          <p className="quick_desc">{this.props.mercado.title}</p>
-                           <div className="add-to">
-                               <button className="btn btn-danger my-cart-btn my-cart-btn1 " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
-                            </div>
-
-                            <div className="clearfix"> </div>
-
-                        </div>
-                        </div>
-
-                        :
-                        <h3>Not selected</h3>
-
-                      }
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
+        </Modal.Header>
+        <Modal.Body>
+        </Modal.Body>
+          {
+            this.props.mercado ?
+            <Modal.Body>
+              <div className="row">
+                <div className="col-md-6">
+                  {this.props.mercado.title}
+                  {this.props.mercado.price}
                 </div>
+                <div className="col-md-6">
+
+                </div>
+              </div>
+
+              </Modal.Body>
+            :
+            ''
+          }
+
+
+        <Modal.Footer>
+          <Button onClick={this.close}>Close</Button>
+        </Modal.Footer>
+      </Modal>
 
       </div>
-    )}
+    )
   }
 }
 export default Compare;
