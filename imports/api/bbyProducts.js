@@ -14,7 +14,8 @@ if(Meteor.isClient){
     Meteor.methods({
       searchBby(query,categoria){
         console.log("id en bby", id);
-        Products.remove({userId: id});
+        const userId = id;
+        Products.remove({});
         console.log("category id", categoria);
         console.log("getprd");
         let bby = require('bestbuy')(process.env.BBY_API_KEY);
@@ -25,6 +26,8 @@ if(Meteor.isClient){
               console.log('Found %d products. First match "%s" is $%d', data.total, data.products[0].name, data.products[0].salePrice);
               console.log(data);
               data.products.map(item => {
+                console.log("before insert " , userId);
+
                 item.userId=id;
                 console.log("bby " , item.userId);
                 Products.insert(item);

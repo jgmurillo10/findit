@@ -20,14 +20,17 @@ class BestBuy extends Component {
   render(){
     return(
       <div>
-
-        <div className="row">
-          {this.props.products.map(product => {
-
-            return <ItemBby key={product._id}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === product._id:false }  setSelected={this.props.setSelected.bind(this)} product={product}/>
-
-          })}
-        </div>
+        {this.props&&this.props.products?
+          <div>
+            <h2>Best Buy</h2>
+            <div className="row">
+            {this.props.products.map(product => {
+              return <ItemBby key={product._id}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === product._id:false }  setSelected={this.props.setSelected.bind(this)} product={product}/>
+            })}
+            </div>
+          </div>:
+        <span></span>
+      }
       </div>
     )
   }

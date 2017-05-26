@@ -23,9 +23,22 @@ class MercadoLibre extends Component {
     return(
       <div>
         <div>
+          <h2>Mercado Libre</h2>
           {this.props.results.map(result => {
             return <Item key={result._id} selected={this.props.selected}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === result._id:false } setSelected={this.props.setSelected.bind(this)} result={result}/>
           })}
+{/*
+          {this.props&&this.props.results?
+            <div>
+              <h2>Mercado Libre</h2>
+              <div className="row">
+              {this.props.results.map(result => {
+                return <Item key={result._id} selected={this.props.selected}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === result._id:false } setSelected={this.props.setSelected.bind(this)} result={result}/>
+              })}
+              </div>
+            </div>:
+          <span></span>
+        } */}
         </div>
       </div>
     )
