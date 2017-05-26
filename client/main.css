@@ -3,13 +3,17 @@
   margin-bottom: 5px;
   /*height: 300px;*/
 }
+.item{
+  height: "350px";
+  margin: "5px";
+}
 .active{
-  /*height: "350px";
-  margin: "5px";*/
-  background-color: "lightgrey";
+  height: "350px";
+  margin: "5px";
+  background-color: "lightgrey" !important;
 }
 .inactive{
   /*height: "350px";
   margin: "5px";*/
-  background-color: "white";
+  background-color: "white" !important;
 }

@@ -2,11 +2,23 @@ import React, {Component} from "react";
 import {Meteor} from "meteor/meteor";
 import {Link} from 'react-router';
 import Button from 'react-bootstrap/lib/Button';
+import '/client/main.css';
 var sectionStyle = {
   height: "350px",
   margin: "5px",
-  backgroundColor: "white"
 };
+var selectedStyle = {
+  height: "350px",
+  margin: "5px",
+  backgroundColor: "lightgrey",
+};
+var unselectedStyle = {
+  height: "350px",
+  margin: "5px",
+  backgroundColor: "white",
+};
+
+
 
 class Item extends Component {
   constructor(props){
@@ -19,16 +31,19 @@ class Item extends Component {
   handleClick(e){
     e.preventDefault();
     this.props.setSelected(this.props.result._id);
-    this.props.onClick(this.props.index);
+    console.log(this.props.result._id, 'index');
+    this.props.onClick(this.props.result._id);
   }
 
   render(){
-      //{this.props.result.title}
+
     return (
       <div onClick={this.handleClick} className="products">
 
-        <div className="col-md-6 m-wthree">
-          <div className="col-m"   style={sectionStyle}  >
+        <div className="col-md-6 m-wthree item">
+
+          {console.log(this.props.isActive, 'is active')}
+          <div className="col-m" style={this.props.isActive? selectedStyle: unselectedStyle} >
             <a href="#" data-toggle="modal" data-target="#myModal" className="offer-img">
               <img src={this.props.result.thumbnail} className="img-responsive" alt=""/>
 

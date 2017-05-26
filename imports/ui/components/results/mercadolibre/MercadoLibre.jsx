@@ -15,6 +15,7 @@ class MercadoLibre extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(index) {
+    console.log('clic', index);
    this.setState({activeIndex: index});
  }
 
@@ -23,7 +24,7 @@ class MercadoLibre extends Component {
       <div>
         <div>
           {this.props.results.map(result => {
-            return <Item key={result._id} selected={this.props.selected}  onClick={ this.handleClick } isActive={ this.state.activeIndex === result._id } setSelected={this.props.setSelected.bind(this)} result={result}/>
+            return <Item key={result._id} selected={this.props.selected}  onClick={ this.handleClick } isActive={ this.state.activeIndex? this.state.activeIndex === result._id:false } setSelected={this.props.setSelected.bind(this)} result={result}/>
           })}
         </div>
       </div>
