@@ -35,6 +35,7 @@ import LoginPage from '../imports/ui/components/auth/LoginPage';
 import SignupPage from '../imports/ui/components/auth/SignupPage';
 import Wishlist from '../imports/ui/components/wishlist/Wishlist';
 import Results from '../imports/ui/components/results/Results';
+import Item from '../imports/ui/components/item/Item';
 
 
 
@@ -48,6 +49,7 @@ Meteor.startup(()=>{
       <Route path="login" component={ LoginPage }/>
       <Route path="signup" component={ SignupPage }/>
       <Route path="wishlist" component={ Wishlist }/>
+      <Route path="item/:item_id" component={ Item }/>
 
 
     </Route>

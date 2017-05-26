@@ -38,9 +38,10 @@ class App extends Component {
             </div>
             <div className="col-md-12">
               {/*<Carousel/>*/}
+              <Carousel/>
             </div>
             <div className="col-md-12">
-              {/*<Offers/>*/}
+              <Offers/>
             </div>
             <div className="col-md-12">
               <Footer/>
