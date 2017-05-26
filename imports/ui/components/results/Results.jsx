@@ -35,8 +35,8 @@ class Results extends Component {
   }
   reset(){
     this.setState({
-      mercado : '',
-      best : '',
+      mercado : null,
+      best : null,
     })
   }
   setBest(i){
@@ -45,7 +45,7 @@ class Results extends Component {
       selectedBestBuy: i,
       selected: true,
     })
-    
+
   }
 
   // componentDidUpdate(){
@@ -58,11 +58,9 @@ class Results extends Component {
   componentWillUpdate(nextProps){
     console.log('willupdate');
     if(!(this.props.query === nextProps.query)){
-      if(!this.state.selected){
-        console.log('GET');
         Meteor.call("search", {query: nextProps.query});
         Meteor.call("searchBby",nextProps.query, nextProps.categoria);
-      }
+
     }
   }
   render(){
