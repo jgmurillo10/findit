@@ -28,3 +28,9 @@ accounts-facebook
 aldeed:simple-schema
 http
 session
+dburles:factory
+practicalmeteor:chai
+practicalmeteor:sinon
+practicalmeteor:mocha
+random
+xolvio:cleaner

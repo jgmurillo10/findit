@@ -48,7 +48,7 @@ class Item extends Component {
               <img src={this.props.result.thumbnail} className="img-responsive" alt=""/>
 
             </a>
-            <div className="mid-1">
+            <div className="mid-1 outside">
               <div className="women">
                 <h6><Link item={this.props.result} to={'/item/'+ this.props.result._id}>{this.props.result.title}</Link></h6>
               </div>
@@ -59,7 +59,7 @@ class Item extends Component {
                 </div>
                 <div className="clearfix"></div>
               </div>
-              <div className="add">
+              <div className="add inside">
                  <button className="btn btn-danger my-cart-btn my-cart-b " data-id="1" data-name="Moong" data-summary="summary 1" data-price="1.50" data-quantity="1" data-image="images/of.png">Add to Cart</button>
                  <button className="btn btn-danger my-cart-btn my-cart-b " onClick={this.handleClick} >Choose</button>
 

@@ -17,6 +17,8 @@ class Compare extends Component {
     this.state = {
       showModal: true,
     }
+    console.log(this.props.mercado);
+    console.log(this.props.best);
   }
   close() {
    this.setState({ showModal: false });
@@ -40,7 +42,7 @@ class Compare extends Component {
         </Modal.Body>
           {
             this.props.mercado ?
-            <Modal.Body>
+            <Modal.Body >
               <div className="row">
 
                 <div className="col-md-6">
@@ -56,37 +58,30 @@ class Compare extends Component {
                   <img src={this.props.best.thumbnailImage} className="img-responsive" alt=""/>
                 </div>
                 <div className="">
-                  <Table responsive>
-                     <thead>
-                       <th>Spec</th>
-                       <th>{this.props.mercado.title}</th>
-                       <th>{this.props.best.name}</th>
+                  <div className="row">
+                    <div className="col-md-offset-1 col-md-2">Price</div>
+                    <div className="col-md-5">$ {this.props.mercado.price} COP</div>
+                    <div className="col-md-4">$ {Math.floor(this.props.best.salePrice*2911)} COP </div>
+                    <div className="col-md-offset-1 col-md-2">Rating Average</div>
+                    <div className="col-md-5">
+                      {this.props.mercado.reviews.rating_average?
+                    <span>{this.props.mercado.reviews.rating_average}</span>
+                  :<span>Not available</span>
+              }
+              </div>
 
-                     </thead>
-                     <tbody>
-                       <tr>
-                         <td>Price</td>
-                         <td>$ {this.props.mercado.price} COP</td>
-                         <td>$ {Math.floor(this.props.best.salePrice*2911)} COP </td>
+                    <div className="col-md-4">{this.props.best.customerReviewAverage}</div>
 
-                       </tr>
-                       <tr>
-                         <td>Rating Average</td>
-                         <td>
-                           {this.props.mercado.reviews.rating_average?
-                           <span>{this.props.mercado.reviews.rating_average}</span>
-                         :
-                         <span>Not available</span>
-                       }
-                         </td>
-                         <td>{this.props.best.customerReviewAverage}</td>
+                      <div className="col-md-offset-1 col-md-5">Price difference: </div>
+                      <div className="col-md-4">
+                        { Math.abs(Math.floor(this.props.best.salePrice*2911) - this.props.mercado.price ) }
+                      </div>
 
-                       </tr>
 
-                     </tbody>
-                   </Table>
-                   <h3>Price difference: { Math.abs(Math.floor(this.props.best.salePrice*2911) - this.props.mercado.price) }</h3>
-                </div>
+
+                  </div>
+
+                   </div>
               </div>
 
               </Modal.Body>

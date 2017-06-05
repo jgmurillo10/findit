@@ -4,6 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
 body{
 	margin:0;
 	padding:0;
@@ -654,12 +655,25 @@ ul.nav.tabs {
 .mid-1 {
     padding: 3em 0 0;
 }
+.outside{
+
+}
+.inside{
+
+}
+.table{
+	margin: 5px;
+	padding: 5px;
+}
 .block {
     float: right;
 }
 .add{
 	text-align:center;
+	/*position: relative;
+  bottom: 0;*/
 }
+
 .col-m {
     padding: 1em;
     border: 1px solid #B2B2B2;
